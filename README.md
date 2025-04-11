@@ -1,3 +1,5 @@
+<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px;">- - - <img src="public/images/logo.png" style="width: 50px;"> - - -</div>
+
 # Talka – Real-Time Chat Application with Laravel 12
 
 **Talka** is a modern, fast, and secure messaging application built with **Laravel 12**, leveraging the **Blade** templating engine, the **Chatify** messaging library, and real-time broadcasting via **Pusher**. It offers a smooth, responsive UI designed to deliver a seamless and engaging user experience.
