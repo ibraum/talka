@@ -1,4 +1,4 @@
-<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px;">- - - <img src="public/images/logo.png" style="width: 50px;"> - - -</div>
+<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px;"><img src="public/images/logo.png" style="width: 50px;"></div>
 
 # Talka – Real-Time Chat Application with Laravel 12
 
