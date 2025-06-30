@@ -1,27 +1,32 @@
 #!/bin/bash
 
-# Si le .env n’existe pas, on le crée à partir de l’exemple
+set -e
+
+# Copie .env si absent
 if [ ! -f /var/www/html/.env ]; then
   cp /var/www/html/.env.example /var/www/html/.env
+
+  # Ajoute clé temporaire si absente
+  sed -i "s|^APP_KEY=.*|APP_KEY=base64:PLACEHOLDER|" /var/www/html/.env
 fi
 
-# Génère la clé si absente
-php artisan key:generate --force
+# Génère clé si absente
+php artisan key:generate --force || true
 
 # Clear caches
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+php artisan config:clear || true
+php artisan route:clear || true
+php artisan view:clear || true
 
-# Cache
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+# Rebuild caches
+php artisan config:cache || true
+php artisan route:cache || true
+php artisan view:cache || true
 
-# Migrations (si base up)
+# Exécute migrations et seed (optionnel)
 php artisan migrate --seed --force || true
 
-# Permissions
+# Droits
 chmod -R 775 storage bootstrap/cache
 
 exec "$@"
