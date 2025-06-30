@@ -20,7 +20,7 @@ WORKDIR /app
 COPY --from=node-builder /app /app
 
 # Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --dev --optimize-autoloader
 
 # -------- FINAL RUNTIME --------
 FROM php:8.3-apache
